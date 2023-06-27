@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- Définition des types personnalisés -->
+  <!-- Type pour les coordonnées GPS -->
+  <xs:simpleType name="coordinateType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="9"/>
+      <xs:fractionDigits value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Type pour les dates -->
+  <xs:simpleType name="dateType">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+
+  <!-- Type pour les heures -->
+  <xs:simpleType name="timeType">
+    <xs:restriction base="xs:time"/>
+  </xs:simpleType>
+
+  <!-- Type pour les vitesses moyennes -->
+  <xs:simpleType name="speedType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="5"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+<!-- Type pour la distance parcourue -->
+  <xs:simpleType name="distanceType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="8"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Définition de la structure du document -->
+
+  <!-- Élément racine -->
+  <xs:element name="utilisateur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ID">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:integer" use="required"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="activites" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="activity" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="sport" type="xs:string"/>
+                    <xs:element name="heure_debut" type="timeType"/>
+                    <xs:element name="heure_fin" type="timeType"/>
+                    <xs:element name="positions_gps">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="gps" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="lat" type="coordinateType"/>
+                                <xs:element name="lng" type="coordinateType"/>
+                                <xs:element name="heure" type="timeType"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="vitesse_moyenne" type="speedType"/>
+                    <xs:element name="distance_parcourue" type="distanceType"/>
+                  </xs:sequence>
+                  <xs:attribute name="date" type="dateType" use="required"/>
+                  <xs:attribute name="id" type="xs:integer" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="nom" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

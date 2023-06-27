@@ -1,0 +1,58 @@
+<web-app>
+    <servlet>
+	    <servlet-name>AjoutUtilisateurServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.AjoutUtilisateurServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>AjoutUtilisateurServlet</servlet-name>
+	    <url-pattern>/ajouterUtilisateur</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>IndexServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.IndexServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>IndexServlet</servlet-name>
+	    <url-pattern>/accueil</url-pattern><!-- C'est la page d'accueil -->
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>InfoUtilisateurServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.InfoUtilisateurServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>InfoUtilisateurServlet</servlet-name>
+	    <url-pattern>/infoUtilisateur</url-pattern>
+	</servlet-mapping>
+	<!-- AjoutUtilisateurServlet : http://localhost:8080/activite/ajoutUtilisateur
+	IndexServlet (page d'accueil) : http://localhost:8080/activite/accueil
+	InfoUtilisateurServlet : http://localhost:8080/activite/infoUtilisateur -->
+	<servlet>
+	    <servlet-name>CreerUtilisateurServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.CreerUtilisateurServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>CreerUtilisateurServlet</servlet-name>
+	    <url-pattern>/creerUtilisateur</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>DemarrerActiviteServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.DemarrerActiviteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DemarrerActiviteServlet</servlet-name>
+	    <url-pattern>/demarrerActivite</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>DetailActiviteServlet</servlet-name>
+	    <servlet-class>com.suivi.activite.DetailActiviteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DetailActiviteServlet</servlet-name>
+	    <url-pattern>/infoUtilisateur/detailActivite</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

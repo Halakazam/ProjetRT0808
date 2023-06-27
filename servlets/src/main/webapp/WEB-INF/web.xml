@@ -1,0 +1,18 @@
+<web-app>
+    <servlet>
+        <servlet-name>WeatherServlet</servlet-name>
+        <servlet-class>com.example.servlets.WeatherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormServlet</servlet-name>
+        <servlet-class>com.example.servlets.FormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormServlet</servlet-name>
+        <url-pattern>/</url-pattern><!-- C'est la page d'accueil -->
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WeatherServlet</servlet-name>
+        <url-pattern>/weather</url-pattern>
+    </servlet-mapping>
+</web-app>
